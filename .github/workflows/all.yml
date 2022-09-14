@@ -80,7 +80,7 @@ jobs:
         cmake --build ${{ env.dir_build }} --config ${{ env.type }} --target install
 
     - name: List errors
-      run: cat "${{ inputs.dir_build }}/CMakeFiles/CMakeError.log" || true
+      run: cat "${{ env.dir_build }}/CMakeFiles/CMakeError.log" || true
 
     - name: List files generated
       run: |
