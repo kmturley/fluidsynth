@@ -79,11 +79,13 @@ jobs:
         cmake --build ${{ env.dir_build }} --config ${{ env.type }} --target demo
         cmake --build ${{ env.dir_build }} --config ${{ env.type }} --target install
 
+    - name: List errors
+      run: cat "${{ inputs.dir_build }}/CMakeFiles/CMakeError.log" || true
+
     - name: List files generated
       run: |
         cd ${{ matrix.path }}
         find "$(pwd)"
-        cat build/CMakeFiles/CMakeError.log
 
     - uses: actions/upload-artifact@v3
       with:
