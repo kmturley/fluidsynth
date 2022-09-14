@@ -83,6 +83,7 @@ jobs:
       run: |
         cd ${{ matrix.path }}
         find "$(pwd)"
+        cat build/CMakeFiles/CMakeError.log
 
     - uses: actions/upload-artifact@v3
       with:
